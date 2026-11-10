@@ -1,0 +1,2 @@
+# This file only keeps the keys/ directory in place -- the real key material
+# (*.pem / fbtokens.json) is excluded by .gitignore; never commit credentials here.

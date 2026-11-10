@@ -1,0 +1,40 @@
+# Live credentials captured from a real client session. Never commit.
+keys/fbtokens.json
+keys/captured_auth_bodies.json
+keys/captured_login_cookie.json
+keys/*.pem
+guest_sauth.json
+fwbuild.txt
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Test and runtime artifacts: not committed.
+#
+# These used to pile up in the worktree (about 40 MB in practice: pytest temp
+# directories, mypy/ruff caches, service logs). They polluted git status and were
+# easy to commit by accident. Test **sources** (tests/*.py) are still tracked;
+# only the files the tests produce are excluded here.
+# ─────────────────────────────────────────────────────────────────────────────
+
+# pytest / type checker / lint caches and temp directories
+.pytest_cache/
+pytest-of-*/
+.mypy_cache/
+.ruff_cache/
+__pycache__/
+*.py[cod]
+
+# Runtime logs (service startup, error output)
+*.log
+logs/
+
+# Virtual environment
+.venv/
+
+# Runtime state: account store, token cache, upload directory
+data/*.db
+data/*.db-shm
+data/*.db-wal
+data/fbtokens.json
+
+# Local configuration (real addresses/keys, maintained per environment)
+.env

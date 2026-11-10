@@ -1,0 +1,8 @@
+# Store and check out with LF everywhere, so cross-platform contributors do not
+# get CRLF. Python copes with both, but mixing them makes whole-file diffs.
+* text=auto eol=lf
+
+# Binary files get no line-ending conversion
+*.png binary
+*.jpg binary
+*.db binary
